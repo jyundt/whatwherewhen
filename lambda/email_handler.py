@@ -91,3 +91,9 @@ def handler(event, context):
             generate_thumbnail(image)
             s3_client.upload_file(image[0],bucket,'thumbnails/'+os.path.basename(image[0]), ExtraArgs={'ContentType': 'image/jpeg'})
 
+
+def main():
+    """Used for testing
+    """
+if __name__ == "__main__":
+    main()

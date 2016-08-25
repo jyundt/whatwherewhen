@@ -88,7 +88,7 @@ def handler(event, context):
         images = extract_images(mailfile)
         for image in images:
             s3_client.upload_file(image[0],bucket,'images/'+os.path.basename(image[0]), ExtraArgs={'ContentType': 'image/jpeg'})
-            generate_thumbnail(image)
+            generate_thumbnail(image[0])
             s3_client.upload_file(image[0],bucket,'thumbnails/'+os.path.basename(image[0]), ExtraArgs={'ContentType': 'image/jpeg'})
 
 
